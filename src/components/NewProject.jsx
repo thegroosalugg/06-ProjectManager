@@ -1,15 +1,12 @@
 import Input from "./Input";
+import Button from "./Button";
 
 export default function NewProject() {
   return (
     <div className="flex flex-col md:w-3/5 m-3">
       <menu className="flex gap-3 justify-end p-3 mb-3">
-        <li>
-          <button>Cancel</button>
-        </li>
-        <li>
-          <button>Save</button>
-        </li>
+        <Button name={"Cancel"} />
+        <Button name={"Save"} />
       </menu>
       <div>
         <Input label={"Project Name"} type="text" />
