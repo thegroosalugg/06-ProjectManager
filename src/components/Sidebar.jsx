@@ -1,11 +1,13 @@
 export default function Sidebar() {
   return (
-    <div id="sidebar">
-      <h2 className="text-2xl font-bold my-4">Projects</h2>
-      <p>sidebar content </p>
-      <p className="my-5">
-        <button>Add Project</button>
-      </p>
-    </div>
+    <aside id="sidebar">
+      <h2 className="md:text-xl uppercase font-bold my-4">Projects</h2>
+      <div className="my-5">
+        <button className="text-xs md:text-base px-4 py-2 rounded-md bg-stone-700 text-stone-300 hover:bg-stone-600 hover:text-stone-100">
+          +Add Project
+        </button>
+      </div>
+      <ul></ul>
+    </aside>
   );
 }

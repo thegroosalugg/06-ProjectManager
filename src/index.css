@@ -2,20 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   min-height: 100vh;
+} */
+
+/* header {
+  text-align: right;
 }
 
-h2 {
-  font-size: 6rem;
-}
-
-p {
-  font-size: 1rem;
-}
+header img {
+  width: 8rem;
+  object-fit: contain;
+  margin: 3rem auto 1rem auto;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+} */
 
 #sidebar {
-  width: 20rem;
+  width: 8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,6 +26,12 @@ p {
   color: #ffffff;
   height: 100vh;
   padding: 1rem;
-  margin-top: 2.25rem;
   border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  #sidebar {
+    width: 20rem;
+  }
 }
