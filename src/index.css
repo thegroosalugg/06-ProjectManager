@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body {
-  min-height: 100vh;
-} */
-
 /* header {
   text-align: right;
 }
@@ -24,7 +20,7 @@ header img {
   align-items: center;
   background-color: #1f2937;
   color: #ffffff;
-  height: 100vh;
+  /* height: 100vh; */
   padding: 1rem;
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
