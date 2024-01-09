@@ -16,6 +16,10 @@ export default function NewProject({ addProject }) {
       date: projectDate.current.value,
     };
     addProject(newProject);
+
+    projectName.current.value = ''; // clear input on save
+    projectDesc.current.value = '';
+    projectDate.current.value = '';
   }
 
   return (
