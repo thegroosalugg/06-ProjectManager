@@ -1,18 +1,42 @@
+import { useState, useRef } from "react";
 import Input from "./Input";
 import Button from "./Button";
 
 export default function NewProject() {
+  const [projects, setProjects] = useState([]);
+  const projectName = useRef();
+  const projectDesc = useRef();
+  const projectDate = useRef();
+
+  console.log(projects);
+
+  let newProject;
+
+  function handleSave() {
+    newProject = {
+      name: projectName.current.value,
+      desc: projectDesc.current.value,
+      date: projectDate.current.value,
+    };
+    setProjects(prevProjects => [...prevProjects, newProject]);
+  }
+
   return (
     <div className="flex flex-col md:w-3/5 m-3">
       {/* <div className="flex flex-col md:w-3/5 m-3 md:ml-0 lg:min-w-[0] mx-auto"> */}
       <menu className="flex gap-3 justify-end p-3 mb-3">
         <Button name={"Cancel"} />
-        <Button name={"Save"} />
+        <Button name={"Save"} handleClick={handleSave} />
       </menu>
       <div>
-        <Input label={"Project Name"} type="text" />
-        <Input label={"Description"} textarea type="text" />
-        <Input label={"Due Date"} type="date" />
+        <Input label={"Project Name"} ref={projectName} type="text" />
+        <Input
+          label={"Description"}
+          ref={projectDesc}
+          textarea
+          type="text"
+        />
+        <Input label={"Due Date"} ref={projectDate} type="date" />
       </div>
     </div>
   );
