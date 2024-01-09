@@ -1,4 +1,4 @@
-export default function Sidebar() {
+export default function Sidebar({ projects }) {
   return (
     <aside id="sidebar">
       <h2 className="md:text-xl uppercase font-bold my-4">Projects</h2>
@@ -7,7 +7,13 @@ export default function Sidebar() {
           + Add Project
         </button>
       </div>
-      <ul></ul>
+      <ul>
+        {projects.map((project, index) => (
+          <li key={`${index} ${project.name}`}>
+            <button>{project.name}</button>
+          </li>
+        ))}
+      </ul>
     </aside>
   );
 }
