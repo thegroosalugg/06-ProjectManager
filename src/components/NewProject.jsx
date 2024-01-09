@@ -1,14 +1,11 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import Input from "./Input";
 import Button from "./Button";
 
-export default function NewProject() {
-  const [projects, setProjects] = useState([]);
+export default function NewProject({ addProject }) {
   const projectName = useRef();
   const projectDesc = useRef();
   const projectDate = useRef();
-
-  console.log(projects);
 
   let newProject;
 
@@ -18,7 +15,7 @@ export default function NewProject() {
       desc: projectDesc.current.value,
       date: projectDate.current.value,
     };
-    setProjects(prevProjects => [...prevProjects, newProject]);
+    addProject(newProject);
   }
 
   return (
@@ -30,12 +27,7 @@ export default function NewProject() {
       </menu>
       <div>
         <Input label={"Project Name"} ref={projectName} type="text" />
-        <Input
-          label={"Description"}
-          ref={projectDesc}
-          textarea
-          type="text"
-        />
+        <Input label={"Description"} ref={projectDesc} textarea type="text" />
         <Input label={"Due Date"} ref={projectDate} type="date" />
       </div>
     </div>
