@@ -26,11 +26,11 @@ button {
   /* display: none; */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   background-color: #1f2937;
   color: #ffffff;
   /* height: 100vh; */
-  padding: 1rem;
+  padding: 1rem 1rem 1rem 3rem;
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
 }
@@ -40,4 +40,16 @@ button {
     width: 20rem;
     /* display: flex; */
   }
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Hide the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent; /* Hide the thumb */
 }
