@@ -11,7 +11,8 @@ export default function Homepage() {
   const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => { // Update the current image index
+    const interval = setInterval(() => {
+      // Update the current image index
       setCurrentImage((prevIndex) => (prevIndex + 1) % images.length);
     }, 8000); // Change image every 8000ms
 
@@ -19,10 +20,19 @@ export default function Homepage() {
   }, []); // Empty dependency array ensures that the effect runs only once on mount
 
   return (
-    <img
-      src={images[currentImage]}
-      alt="wallpaper"
-      className="mx-auto md:mx-20 my-auto border-2 border-stone-400"
-    />
+    <>
+      <img
+        src={images[currentImage]}
+        alt="wallpaper"
+        className="ml-10 md:ml-20 mr-5 md:mr-10 my-auto border-2 border-stone-400"
+      />
+      <p className="flex flex-col max-w-40 text-stone-900 text-justify my-auto text-xs md:text-base mr-10">
+        You have no projects open. Select a project or create a new one You have
+        no projects open. Select a project or create a new one You have no
+        projects open. Select a project or create a new one You have no projects
+        open. Select a project or create a new one You have no projects open.
+        Select a project or create a new one
+      </p>
+    </>
   );
 }
