@@ -1,24 +1,47 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
 
-export default function NewProject() {
-  const [projects, setProjects] = useState([]);
+export default function NewProject({ addProject }) {
+  const [error, setError] = useState(null); // State to manage errors
   const projectName = useRef();
   const projectDesc = useRef();
   const projectDate = useRef();
 
-  console.log(projects);
-
-  let newProject;
-
   function handleSave() {
-    newProject = {
-      name: projectName.current.value,
-      desc: projectDesc.current.value,
+    if (!projectName.current.value.trim()) {
+      setError("Name field cannot be empty.");
+      return;
+    }
+
+    if (
+      projectName.current.value.trim().length < 6 ||
+      projectName.current.value.trim().length > 15
+    ) {
+      setError("Name should be between 6 and 15 characters.");
+      return;
+    }
+
+    if (!projectDate.current.value) {
+      setError("Please select a date.");
+      return;
+    }
+
+    setError(null); // Validation passed, clear error message
+
+    const newProject = {
+      name: projectName.current.value.trim(),
+      desc: projectDesc.current.value.trim(),
       date: projectDate.current.value,
     };
-    setProjects(prevProjects => [...prevProjects, newProject]);
+
+    // Use the addProject function passed as a prop
+    addProject(newProject);
+
+    // Clear input on save
+    projectName.current.value = "";
+    projectDesc.current.value = "";
+    projectDate.current.value = "";
   }
 
   return (
@@ -30,13 +53,9 @@ export default function NewProject() {
       </menu>
       <div>
         <Input label={"Project Name"} ref={projectName} type="text" />
-        <Input
-          label={"Description"}
-          ref={projectDesc}
-          textarea
-          type="text"
-        />
+        <Input label={"Description"} ref={projectDesc} textarea type="text" />
         <Input label={"Due Date"} ref={projectDate} type="date" />
+        {error && <p className="text-red-600">{error}</p>}
       </div>
     </div>
   );
