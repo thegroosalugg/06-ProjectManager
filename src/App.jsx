@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import NewProject from "./components/NewProject";
+import Homepage from "./components/Homepage";
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -18,10 +19,11 @@ function App() {
   console.log(displayForm);
 
   return (
-    <main className="h-screen my-2 md:my-8 flex gap-2 md:gap-8">
+    <main className="h-screen my-2 md:my-8 flex md:gap-8">
     {/* <main className="h-screen my-2 md:my-8 flex flex-col md:flex-row gap-8"> */}
       <Sidebar projects={projects} toggleForm={handleDisplay} />
       {displayForm && <NewProject addProject={handleAddProject} toggleForm={handleDisplay} />}
+      {!displayForm && <Homepage />}
     </main>
   );
 }

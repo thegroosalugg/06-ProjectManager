@@ -2,19 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* header {
-  text-align: right;
-}
-
-header img {
-  width: 8rem;
-  object-fit: contain;
-  margin: 3rem auto 1rem auto;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
-} */
-
 button {
   transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+img {
+  height: 80%;
+  border-radius: 5%;
 }
 
 .text-xxs {
@@ -22,7 +16,7 @@ button {
 }
 
 #sidebar {
-  width: 8rem;
+  width: 5rem;
   /* display: none; */
   display: flex;
   flex-direction: column;
@@ -30,14 +24,15 @@ button {
   background-color: #1f2937;
   color: #ffffff;
   /* height: 100vh; */
-  padding: 1rem 1rem 1rem 3rem;
+  padding: 0.5rem;
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
 }
 
 @media (min-width: 768px) {
   #sidebar {
-    width: 20rem;
+    width: 18rem;
+    padding: 1rem 1rem 1rem 3rem;
     /* display: flex; */
   }
 }
