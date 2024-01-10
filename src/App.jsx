@@ -10,8 +10,8 @@ function App() {
     setProjects(prevProjects => [...prevProjects, newProject]);
   }
 
-  function handleDisplay() {
-    setDisplay(true)
+  function handleDisplay(toggle) { // add project shows form, cancel button hides, thus parameter is passed with true or false per button
+    setDisplay(toggle)
   }
 
   console.log(projects);
@@ -20,8 +20,8 @@ function App() {
   return (
     <main className="h-screen my-2 md:my-8 flex gap-2 md:gap-8">
     {/* <main className="h-screen my-2 md:my-8 flex flex-col md:flex-row gap-8"> */}
-      <Sidebar projects={projects} addProject={handleDisplay} />
-      {displayForm && <NewProject addProject={handleAddProject} />}
+      <Sidebar projects={projects} toggleForm={handleDisplay} />
+      {displayForm && <NewProject addProject={handleAddProject} toggleForm={handleDisplay} />}
     </main>
   );
 }

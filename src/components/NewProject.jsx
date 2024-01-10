@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import Input from "./Input";
 import Button from "./Button";
 
-export default function NewProject({ addProject }) {
+export default function NewProject({ addProject, toggleForm }) {
   const [error, setError] = useState(null); // State to manage errors
   const projectName = useRef();
   const projectDesc = useRef();
@@ -35,11 +35,9 @@ export default function NewProject({ addProject }) {
       date: projectDate.current.value,
     };
 
-    // Use the addProject function passed as a prop
-    addProject(newProject);
+    addProject(newProject); // Use the addProject function passed as a prop
 
-    // Clear input on save
-    projectName.current.value = "";
+    projectName.current.value = ""; // Clear input on save
     projectDesc.current.value = "";
     projectDate.current.value = "";
   }
@@ -48,7 +46,7 @@ export default function NewProject({ addProject }) {
     <div className="flex flex-col md:w-3/5 m-3">
       {/* <div className="flex flex-col md:w-3/5 m-3 md:ml-0 lg:min-w-[0] mx-auto"> */}
       <menu className="flex gap-3 justify-end p-3 mb-3">
-        <Button name={"Cancel"} />
+        <Button name={"Cancel"} handleClick={() => toggleForm(false)} />
         <Button name={"Save"} handleClick={handleSave} />
       </menu>
       <div>

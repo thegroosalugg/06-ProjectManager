@@ -6,7 +6,7 @@ export default function Button({ name, handleClick }) {
         style={{ minWidth: "5rem" }}
         onClick={handleClick}
       >
-        {name}{" "}
+        {name}
       </button>
     </li>
   );
