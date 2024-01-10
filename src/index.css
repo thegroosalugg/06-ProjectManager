@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* img {
-  width: 8rem;
-  object-fit: contain;
-  margin: 3rem auto 1rem auto;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
-} */
-
 button {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
@@ -39,7 +31,7 @@ img {
 
 @media (min-width: 768px) {
   #sidebar {
-    width: 20rem;
+    width: 18rem;
     padding: 1rem 1rem 1rem 3rem;
     /* display: flex; */
   }

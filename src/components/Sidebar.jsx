@@ -13,7 +13,7 @@ export default function Sidebar({ projects, toggleForm }) {
       <ul className="md:mt-3 max-h-60 overflow-auto">
         {projects.map((project, index) => (
           <li key={`${index} ${project.name}`}>
-            <button className="md:p-1 md:mb-1 text-xxs md:text-lg uppercase hover:text-stone-500">
+            <button className="md:p-1 md:mb-1 text-xs md:text-lg uppercase hover:text-stone-500">
               {project.name}
             </button>
           </li>
