@@ -2,11 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* header {
-  text-align: right;
-}
 
-header img {
+/* img {
   width: 8rem;
   object-fit: contain;
   margin: 3rem auto 1rem auto;
@@ -15,6 +12,11 @@ header img {
 
 button {
   transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+img {
+  height: 80%;
+  border-radius: 5%;
 }
 
 .text-xxs {
