@@ -16,7 +16,7 @@ img {
 }
 
 #sidebar {
-  width: 8rem;
+  width: 5rem;
   /* display: none; */
   display: flex;
   flex-direction: column;
