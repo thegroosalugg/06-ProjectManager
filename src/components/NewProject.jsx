@@ -36,10 +36,6 @@ export default function NewProject({ addProject, toggleForm }) {
     };
 
     addProject(newProject); // Use the addProject function passed as a prop
-
-    projectName.current.value = ""; // Clear input on save
-    projectDesc.current.value = "";
-    projectDate.current.value = "";
   }
 
   return (

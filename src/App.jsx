@@ -11,15 +11,16 @@ function App() {
 
   function handleAddProject(newProject) {
     setProjects(prevProjects => [...prevProjects, newProject]);
+    handleProjectClick(newProject) // saving form will directly go to the new project view
   }
 
   function handleDisplay(toggle) { // add project shows form, cancel button hides, thus parameter is passed with true or false per button
     setDisplay(toggle)
-    setSelectedProject(null)
+    setSelectedProject(null) // when adding a new project, selected project is cleared
   }
 
   function handleProjectClick(project) {
-    setDisplay(false)
+    setDisplay(false) // when called, form display set to false which will deactivate the form and home pages
     setSelectedProject(project);
   }
 
