@@ -11,11 +11,11 @@ function App() {
 
   function handleAddProject(newProject) {
     setProjects(prevProjects => [...prevProjects, newProject]);
-    setSelectedProject(null)
   }
 
   function handleDisplay(toggle) { // add project shows form, cancel button hides, thus parameter is passed with true or false per button
     setDisplay(toggle)
+    setSelectedProject(null)
   }
 
   function handleProjectClick(project) {
@@ -23,8 +23,9 @@ function App() {
     setSelectedProject(project);
   }
 
-  console.log(projects);
-  console.log(displayForm);
+  console.log("Projects Array", projects);
+  console.log("Form Display:", displayForm);
+  console.log("Selected Project:", selectedProject);
 
   return (
     <main className="h-screen my-2 md:my-8 flex md:gap-8">
