@@ -22,7 +22,7 @@ export default function Homepage() {
 
   return (
     <>
-      <div className="flex flex-col text-stone-900 md:ml-20 md:my-20 min-w-60 xl:my-auto text-center">
+      <div className="flex flex-col text-stone-900 md:ml-20 md:my-20 xl:my-auto text-center" style={{ width: '400px' }}>
         <img
           src={logo}
           alt="logo"

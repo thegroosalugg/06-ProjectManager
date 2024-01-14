@@ -36,18 +36,14 @@ export default function NewProject({ addProject, toggleForm }) {
     };
 
     addProject(newProject); // Use the addProject function passed as a prop
-
-    projectName.current.value = ""; // Clear input on save
-    projectDesc.current.value = "";
-    projectDate.current.value = "";
   }
 
   return (
-    <div className="flex flex-col md:w-3/5 m-3">
+    <div className="flex flex-col m-3" style={{ width: '800px' }}>
       {/* <div className="flex flex-col md:w-3/5 m-3 md:ml-0 lg:min-w-[0] mx-auto"> */}
       <menu className="flex gap-3 justify-end p-3 mb-3">
-        <Button name={"Cancel"} handleClick={() => toggleForm(false)} />
-        <Button name={"Save"} handleClick={handleSave} />
+        <Button name={"Cancel"} onClick={() => toggleForm(false)} />
+        <Button name={"Save"} onClick={handleSave} />
       </menu>
       <div>
         <Input label={"Project Name"} ref={projectName} type="text" />
