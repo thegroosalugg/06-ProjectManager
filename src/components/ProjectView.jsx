@@ -2,7 +2,7 @@ import Button from "./Button";
 
 export default function ProjectView({ name, desc, date }) {
   return (
-    <div className="my-20 w-3/5 m-3">
+    <div className="my-20 m-3" style={{ width: '800px' }}>
       <div className="flex justify-between">
         <h2 className="font-bold text-2xl uppercase">{name}</h2>
         <Button name={'Delete'} />

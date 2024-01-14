@@ -29,7 +29,7 @@ function App() {
   console.log("Selected Project:", selectedProject);
 
   return (
-    <main className="h-screen my-2 md:my-8 flex md:gap-8">
+    <main className="h-screen flex md:gap-8">
     {/* <main className="h-screen my-2 md:my-8 flex flex-col md:flex-row gap-8"> */}
       <Sidebar projects={projects} toggleForm={handleDisplay} onProjectClick={handleProjectClick} />
       {displayForm && <NewProject addProject={handleAddProject} toggleForm={handleDisplay} />}

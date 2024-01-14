@@ -25,8 +25,8 @@ img {
   color: #ffffff;
   /* height: 100vh; */
   padding: 0.5rem;
-  border-top-right-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
+  /* border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px; */
 }
 
 @media (min-width: 768px) {

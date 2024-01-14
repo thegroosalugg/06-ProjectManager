@@ -39,7 +39,7 @@ export default function NewProject({ addProject, toggleForm }) {
   }
 
   return (
-    <div className="flex flex-col w-3/5 m-3">
+    <div className="flex flex-col m-3" style={{ width: '800px' }}>
       {/* <div className="flex flex-col md:w-3/5 m-3 md:ml-0 lg:min-w-[0] mx-auto"> */}
       <menu className="flex gap-3 justify-end p-3 mb-3">
         <Button name={"Cancel"} onClick={() => toggleForm(false)} />
