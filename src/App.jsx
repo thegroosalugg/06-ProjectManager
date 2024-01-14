@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Sidebar from "./components/Sidebar";
 import NewProject from "./components/NewProject";
 import Homepage from "./components/Homepage";
@@ -8,6 +8,7 @@ function App() {
   const [projects, setProjects] = useState([]);
   const [displayForm, setDisplay] = useState(false)
   const [selectedProject, setSelectedProject] = useState(null);
+  const newTask = useRef();
 
   function handleAddProject(newProject) {
     setProjects(prevProjects => [...prevProjects, newProject]);
@@ -24,6 +25,14 @@ function App() {
     setSelectedProject(project);
   }
 
+  function handleUpdateProject(updatedProject) {
+    setProjects((prevProjects) =>
+      prevProjects.map((proj) =>
+        proj.id === updatedProject.id ? updatedProject : proj
+      )
+    );
+  }
+
   console.log("Projects Array", projects);
   console.log("Form Display:", displayForm);
   console.log("Selected Project:", selectedProject);
@@ -34,7 +43,7 @@ function App() {
       <Sidebar projects={projects} toggleForm={handleDisplay} onProjectClick={handleProjectClick} />
       {displayForm && <NewProject addProject={handleAddProject} toggleForm={handleDisplay} />}
       {(!displayForm && !selectedProject) && <Homepage />}
-      {selectedProject && <ProjectView {...selectedProject} />}
+      {selectedProject && <ProjectView project={selectedProject} ref={newTask} updateProject={handleUpdateProject} />}
     </main>
   );
 }
