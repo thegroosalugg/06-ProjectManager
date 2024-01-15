@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { formatName } from "../util/formatName"
 import Input from "./Input";
 import Button from "./Button";
 
@@ -7,15 +8,6 @@ export default function NewProject({ addProject, toggleForm }) {
   const projectName = useRef();
   const projectDesc = useRef();
   const projectDate = useRef();
-
-  function formatName(name) { // capitalizes every word in project name
-    return name
-      .trim()
-      .replace(/[-_]/g, " ")
-      .split(" ")
-      .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
-      .join(" ");
-  }
 
   function formatDate(date) {
     const options = { day: "numeric", month: "short", year: "numeric" };

@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { formatName } from "../util/formatName"
 import Button from "./Button";
 
 export default function ProjectView({ project, updateProject, deleteProject }) {
@@ -6,14 +7,16 @@ export default function ProjectView({ project, updateProject, deleteProject }) {
   const [error, setError] = useState(null); // State to manage errors
 
   function handleAddTask() {
-    if (!newTask.current.value.trim()) {
+    const name = formatName(newTask.current.value)
+
+    if (!name) {
       setError("Field cannot be empty.");
       return;
     }
 
     if (
-      newTask.current.value.trim().length < 6 ||
-      newTask.current.value.trim().length > 30
+      name.length < 6 ||
+      name.length > 30
     ) {
       setError("Task should be between 6 and 30 characters.");
       return;
@@ -22,7 +25,7 @@ export default function ProjectView({ project, updateProject, deleteProject }) {
     setError(null); // Validation passed, clear error message
 
     const task = {
-      text: newTask.current.value,
+      text: name,
       id: Math.random()
     }
 
