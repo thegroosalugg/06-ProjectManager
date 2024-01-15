@@ -30,6 +30,7 @@ function App() {
         proj.id === updatedProject.id ? updatedProject : proj
       )
     );
+    setSelectedProject(updatedProject);
   }
 
   console.log("Projects Array", projects);
