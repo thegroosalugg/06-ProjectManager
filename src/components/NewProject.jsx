@@ -34,6 +34,7 @@ export default function NewProject({ addProject, toggleForm }) {
       name: projectName.current.value.trim(),
       desc: projectDesc.current.value.trim(),
       date: projectDate.current.value,
+      tasks: []
     };
 
     addProject(newProject); // Use the addProject function passed as a prop

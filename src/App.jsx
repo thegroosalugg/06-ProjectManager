@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import NewProject from "./components/NewProject";
 import Homepage from "./components/Homepage";
@@ -8,7 +8,6 @@ function App() {
   const [projects, setProjects] = useState([]);
   const [displayForm, setDisplay] = useState(false)
   const [selectedProject, setSelectedProject] = useState(null);
-  const newTask = useRef();
 
   function handleAddProject(newProject) {
     setProjects(prevProjects => [...prevProjects, newProject]);
@@ -43,7 +42,7 @@ function App() {
       <Sidebar projects={projects} toggleForm={handleDisplay} onProjectClick={handleProjectClick} />
       {displayForm && <NewProject addProject={handleAddProject} toggleForm={handleDisplay} />}
       {(!displayForm && !selectedProject) && <Homepage />}
-      {selectedProject && <ProjectView project={selectedProject} ref={newTask} updateProject={handleUpdateProject} />}
+      {selectedProject && <ProjectView project={selectedProject} updateProject={handleUpdateProject} />}
     </main>
   );
 }
