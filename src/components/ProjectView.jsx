@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import Button from "./Button";
 
-export default function ProjectView({ project, updateProject }) {
+export default function ProjectView({ project, updateProject, deleteProject }) {
   const newTask = useRef();
   const [error, setError] = useState(null); // State to manage errors
 
@@ -50,7 +50,7 @@ export default function ProjectView({ project, updateProject }) {
     <div className="my-20 m-3" style={{ width: "800px" }}>
       <div className="flex justify-between">
         <h2 className="font-bold text-2xl uppercase">{project.name}</h2>
-        <Button name={"Delete"} />
+        <Button name={"Delete"} onClick={() => deleteProject(project)} />
       </div>
       <p className="mb-1 text-stone-600">{project.date}</p>
       <p className="overflow-auto break-all my-2 max-h-40">{project.desc}</p>
