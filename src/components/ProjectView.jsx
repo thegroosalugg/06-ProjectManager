@@ -21,9 +21,14 @@ export default function ProjectView({ project, updateProject }) {
 
     setError(null); // Validation passed, clear error message
 
+    const task = {
+      text: newTask.current.value,
+      id: Math.random()
+    }
+
     const updatedProject = {
       ...project,
-      tasks: [newTask.current.value, ...project.tasks],
+      tasks: [task, ...project.tasks],
     };
 
     // Call the parent component's function to update the project in the projects array
@@ -31,7 +36,15 @@ export default function ProjectView({ project, updateProject }) {
     newTask.current.value = "";
   }
 
-  function handleDeleteTask({ project, task }) {}
+  function handleDeleteTask({ project, task }) {
+    const updatedTasks = project.tasks.filter((t) => t.id !== task.id);
+    const updatedProject = {
+      ...project,
+      tasks: updatedTasks,
+    };
+
+    updateProject(updatedProject);
+  }
 
   return (
     <div className="my-20 m-3" style={{ width: "800px" }}>
@@ -55,7 +68,7 @@ export default function ProjectView({ project, updateProject }) {
       <ol className="overflow-auto max-h-60 w-80 p-4 mt-8 rounded-md bg-stone-200">
         {project.tasks.map((task, index) => (
           <li key={index} className="flex justify-between my-1">
-            <p>{task}</p>
+            <p>{task.text}</p>
             <button
               className="font-bold text-stone-700 hover:text-stone-100"
               onClick={() => handleDeleteTask({ project, task })}
