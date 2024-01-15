@@ -49,7 +49,7 @@ export default function ProjectView({ project, updateProject, deleteProject }) {
   return (
     <div className="my-20 m-3" style={{ width: "800px" }}>
       <div className="flex justify-between">
-        <h2 className="font-bold text-2xl uppercase">{project.name}</h2>
+        <h2 className="font-bold text-2xl">{project.name}</h2>
         <Button name={"Delete"} onClick={() => deleteProject(project)} />
       </div>
       <p className="mb-1 text-stone-600">{project.date}</p>
