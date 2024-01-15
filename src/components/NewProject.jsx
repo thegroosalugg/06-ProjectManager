@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { formatName } from "../util/formatName"
 import Input from "./Input";
 import Button from "./Button";
 
@@ -8,15 +9,22 @@ export default function NewProject({ addProject, toggleForm }) {
   const projectDesc = useRef();
   const projectDate = useRef();
 
+  function formatDate(date) {
+    const options = { day: "numeric", month: "short", year: "numeric" };
+    return new Date(date).toLocaleDateString("en-GB", options);
+  }
+
   function handleSave() {
-    if (!projectName.current.value.trim()) {
+    const name = formatName(projectName.current.value)
+
+    if (!name) {
       setError("Name field cannot be empty.");
       return;
     }
 
     if (
-      projectName.current.value.trim().length < 6 ||
-      projectName.current.value.trim().length > 15
+      name.length < 6 ||
+      name.length > 15
     ) {
       setError("Name should be between 6 and 15 characters.");
       return;
@@ -31,10 +39,10 @@ export default function NewProject({ addProject, toggleForm }) {
 
     const newProject = {
       id: Math.random(),
-      name: projectName.current.value.trim(),
+      name: name,
       desc: projectDesc.current.value.trim(),
-      date: projectDate.current.value,
-      tasks: []
+      date: formatDate(projectDate.current.value),
+      tasks: [],
     };
 
     addProject(newProject); // Use the addProject function passed as a prop
