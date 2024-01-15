@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { formatName } from "../util/formatName"
+import { formatName } from "../util/formatName";
 import Button from "./Button";
 
 export default function ProjectView({ project, updateProject, deleteProject }) {
@@ -7,17 +7,14 @@ export default function ProjectView({ project, updateProject, deleteProject }) {
   const [error, setError] = useState(null); // State to manage errors
 
   function handleAddTask() {
-    const name = formatName(newTask.current.value)
+    const name = formatName(newTask.current.value);
 
     if (!name) {
       setError("Field cannot be empty.");
       return;
     }
 
-    if (
-      name.length < 6 ||
-      name.length > 30
-    ) {
+    if (name.length < 6 || name.length > 30) {
       setError("Task should be between 6 and 30 characters.");
       return;
     }
@@ -26,8 +23,8 @@ export default function ProjectView({ project, updateProject, deleteProject }) {
 
     const task = {
       text: name,
-      id: Math.random()
-    }
+      id: Math.random(),
+    };
 
     const updatedProject = {
       ...project,
@@ -49,6 +46,28 @@ export default function ProjectView({ project, updateProject, deleteProject }) {
     updateProject(updatedProject);
   }
 
+  let tasksView;
+
+  if (project.tasks.length > 0) {
+    tasksView = (
+      <ol className="overflow-auto max-h-60 w-80 p-4 mt-8 rounded-md bg-stone-200">
+        {project.tasks.map((task, index) => (
+          <li key={index} className="flex justify-between my-1">
+            <p>{task.text}</p>
+            <button
+              className="font-bold text-stone-700 hover:text-stone-100"
+              onClick={() => handleDeleteTask({ project, task })}
+            >
+              ✕
+            </button>
+          </li>
+        ))}
+      </ol>
+    );
+  } else {
+    tasksView = <p>You haven't added any tasks yet.</p>;
+  }
+
   return (
     <div className="my-20 m-3" style={{ width: "800px" }}>
       <div className="flex justify-between">
@@ -68,19 +87,7 @@ export default function ProjectView({ project, updateProject, deleteProject }) {
         <Button name={"Add Task"} onClick={handleAddTask} />
       </div>
       {error && <p className="text-red-600">{error}</p>}
-      <ol className="overflow-auto max-h-60 w-80 p-4 mt-8 rounded-md bg-stone-200">
-        {project.tasks.map((task, index) => (
-          <li key={index} className="flex justify-between my-1">
-            <p>{task.text}</p>
-            <button
-              className="font-bold text-stone-700 hover:text-stone-100"
-              onClick={() => handleDeleteTask({ project, task })}
-            >
-              ✕
-            </button>
-          </li>
-        ))}
-      </ol>
+      {tasksView}
     </div>
   );
 }
