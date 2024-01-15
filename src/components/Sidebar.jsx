@@ -14,7 +14,7 @@ export default function Sidebar({ projects, toggleForm, onProjectClick }) {
       </div>
       <ul className="md:mt-3 max-h-60 overflow-auto">
         {projects.map((project, index) => (
-          <li key={`${index} ${project.name}`}>
+          <li key={project.id}>
             <button
               className="md:p-1 md:mb-1 text-xs md:text-lg uppercase hover:text-stone-500"
               onClick={() => onProjectClick(project)}

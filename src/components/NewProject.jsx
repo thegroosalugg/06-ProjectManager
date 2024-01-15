@@ -30,16 +30,18 @@ export default function NewProject({ addProject, toggleForm }) {
     setError(null); // Validation passed, clear error message
 
     const newProject = {
+      id: Math.random(),
       name: projectName.current.value.trim(),
       desc: projectDesc.current.value.trim(),
       date: projectDate.current.value,
+      tasks: []
     };
 
     addProject(newProject); // Use the addProject function passed as a prop
   }
 
   return (
-    <div className="flex flex-col m-3" style={{ width: '800px' }}>
+    <div className="flex flex-col m-3" style={{ width: "800px" }}>
       {/* <div className="flex flex-col md:w-3/5 m-3 md:ml-0 lg:min-w-[0] mx-auto"> */}
       <menu className="flex gap-3 justify-end p-3 mb-3">
         <Button name={"Cancel"} onClick={() => toggleForm(false)} />
