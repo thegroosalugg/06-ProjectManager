@@ -13,8 +13,13 @@ export default function NewProject({ addProject, toggleForm }) {
       .trim()
       .replace(/[-_]/g, " ")
       .split(" ")
-      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
       .join(" ");
+  }
+
+  function formatDate(date) {
+    const options = { day: "numeric", month: "short", year: "numeric" };
+    return new Date(date).toLocaleDateString("en-GB", options);
   }
 
   function handleSave() {
@@ -44,7 +49,7 @@ export default function NewProject({ addProject, toggleForm }) {
       id: Math.random(),
       name: name,
       desc: projectDesc.current.value.trim(),
-      date: projectDate.current.value,
+      date: formatDate(projectDate.current.value),
       tasks: [],
     };
 
