@@ -13,9 +13,9 @@ export default function ProjectView({ project, updateProject }) {
 
     if (
       newTask.current.value.trim().length < 6 ||
-      newTask.current.value.trim().length > 15
+      newTask.current.value.trim().length > 30
     ) {
-      setError("Name should be between 6 and 15 characters.");
+      setError("Task should be between 6 and 30 characters.");
       return;
     }
 
@@ -31,6 +31,8 @@ export default function ProjectView({ project, updateProject }) {
     newTask.current.value = "";
   }
 
+  function handleDeleteTask({ project, task }) {}
+
   return (
     <div className="my-20 m-3" style={{ width: "800px" }}>
       <div className="flex justify-between">
@@ -44,15 +46,25 @@ export default function ProjectView({ project, updateProject }) {
       <div className="flex items-center gap-4">
         <input
           type="text"
-          className="border bg-stone-200 my-3 mr-3"
+          className="border bg-stone-200 my-3 mr-3 w-80"
           ref={newTask}
         />
         <Button name={"Add Task"} onClick={handleAddTask} />
       </div>
       {error && <p className="text-red-600">{error}</p>}
-      <ol className="overflow-auto max-h-50">
-        {project.tasks.map((task, index) => <li key={index}>{task}</li>)}
+      <ol className="overflow-auto max-h-60 w-80 p-4 mt-8 rounded-md bg-stone-200">
+        {project.tasks.map((task, index) => (
+          <li key={index} className="flex justify-between my-1">
+            <p>{task}</p>
+            <button
+              className="font-bold text-stone-700 hover:text-stone-100"
+              onClick={() => handleDeleteTask({ project, task })}
+            >
+              ✕
+            </button>
+          </li>
+        ))}
       </ol>
     </div>
   );
-};
+}

@@ -30,7 +30,7 @@ function App() {
         proj.id === updatedProject.id ? updatedProject : proj
       )
     );
-    setSelectedProject(updatedProject);
+    setSelectedProject(updatedProject); // rerended the component with the new task added inside project
   }
 
   console.log("Projects Array", projects);
