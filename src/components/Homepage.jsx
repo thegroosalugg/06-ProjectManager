@@ -29,15 +29,15 @@ export default function Homepage() {
           className="w-16 h-16 object-contain mx-auto"
         />
         <div style={{ width: '400px' }}>
-          <h2 className="text-2xl font-bold uppercase my:10 md:my-10">React Projects Manager</h2>
-          <p className="md:mb-10 text-base">You have no projects open.</p>
+          <h2 className="text-2xl font-bold uppercase my-10">React Projects Manager</h2>
+          <p className="mb-10 text-base">You have no projects open.</p>
           <p className="mb-10 text-base">Select a project or create a new one.</p>
         </div>
         </div>
       <img
         src={images[currentImage]}
         alt="wallpaper"
-        className="mt-10 mb-auto border-2 border-stone-400"
+        className="mt-20 mb-auto border-2 border-stone-400"
         />
     </>
   );
