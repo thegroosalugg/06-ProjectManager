@@ -8,16 +8,9 @@ button {
 
 img {
   border-radius: 5%;
-
-}
-
-.text-xxs {
-  font-size: 0.4rem;
 }
 
 #sidebar {
-  /* width: 300px;
-  height: 2800px; */
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -25,13 +18,6 @@ img {
   color: #ffffff;
   padding: 0.5rem;
 }
-
-/* @media (min-width: 768px) {
-  #sidebar {
-    padding: 1rem 1rem 1rem 3rem;
-    display: flex;
-  }
-} */
 
 ::-webkit-scrollbar {
   width: 0px; /* Width of the scrollbar */
