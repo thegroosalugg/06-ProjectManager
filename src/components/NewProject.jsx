@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { formatName } from "../util/formatName"
+import { formatName } from "../util/formatName";
 import Input from "./Input";
 import Button from "./Button";
 
@@ -15,17 +15,14 @@ export default function NewProject({ addProject, toggleForm }) {
   }
 
   function handleSave() {
-    const name = formatName(projectName.current.value)
+    const name = formatName(projectName.current.value);
 
     if (!name) {
       setError("Name field cannot be empty.");
       return;
     }
 
-    if (
-      name.length < 6 ||
-      name.length > 15
-    ) {
+    if (name.length < 6 || name.length > 15) {
       setError("Name should be between 6 and 15 characters.");
       return;
     }
