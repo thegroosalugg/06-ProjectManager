@@ -42,10 +42,6 @@ function App() {
     setSelectedProject(null);
   }
 
-  console.log("Projects Array", projects);
-  console.log("Form Display:", displayForm);
-  console.log("Selected Project:", selectedProject);
-
   return (
     <main className="md:h-screen flex gap-8">
       <Sidebar
