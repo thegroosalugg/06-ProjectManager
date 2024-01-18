@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { formatName } from "../util/formatName"
+import { formatName } from "../util/formatName";
 import Input from "./Input";
 import Button from "./Button";
 
@@ -15,17 +15,14 @@ export default function NewProject({ addProject, toggleForm }) {
   }
 
   function handleSave() {
-    const name = formatName(projectName.current.value)
+    const name = formatName(projectName.current.value);
 
     if (!name) {
       setError("Name field cannot be empty.");
       return;
     }
 
-    if (
-      name.length < 6 ||
-      name.length > 15
-    ) {
+    if (name.length < 6 || name.length > 15) {
       setError("Name should be between 6 and 15 characters.");
       return;
     }
@@ -50,7 +47,6 @@ export default function NewProject({ addProject, toggleForm }) {
 
   return (
     <div className="flex flex-col m-3" style={{ width: "800px" }}>
-      {/* <div className="flex flex-col md:w-3/5 m-3 md:ml-0 lg:min-w-[0] mx-auto"> */}
       <menu className="flex gap-3 justify-end p-3 mb-3">
         <Button name={"Cancel"} onClick={() => toggleForm(false)} />
         <Button name={"Save"} onClick={handleSave} />

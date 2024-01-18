@@ -22,21 +22,23 @@ export default function Homepage() {
 
   return (
     <>
-      <div className="flex flex-col text-stone-900 md:ml-20 md:my-20 xl:my-auto text-center" style={{ width: '400px' }}>
+      <div className="flex flex-col text-stone-900 ml-20 mt-40 mb-auto text-center" style={{ width: '400px' }}>
         <img
           src={logo}
           alt="logo"
           className="w-16 h-16 object-contain mx-auto"
         />
-        <h2 className="text-xxs md:text-2xl font-bold uppercase my:10 md:my-10">React Projects Manager</h2>
-        <p className="md:mb-10 text-xxs md:text-base">You have no projects open.</p>
-        <p className="mb-10 text-xxs md:text-base">Select a project or create a new one.</p>
-      </div>
+        <div style={{ width: '400px' }}>
+          <h2 className="text-2xl font-bold uppercase my-10">React Projects Manager</h2>
+          <p className="mb-10 text-base">You have no projects open.</p>
+          <p className="mb-10 text-base">Select a project or create a new one.</p>
+        </div>
+        </div>
       <img
         src={images[currentImage]}
         alt="wallpaper"
-        className="md:mx-20 my-auto border-2 border-stone-400"
-      />
+        className="mt-20 mb-auto border-2 border-stone-400"
+        />
     </>
   );
 }
